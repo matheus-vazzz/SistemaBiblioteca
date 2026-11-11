@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Biblioteca</title>
+    <link rel="stylesheet" th:href="@{/css/estilo.css}" href="../static/css/estilo.css">
+</head>
+<body>
+
+    <header>
+        <div class="topo">
+            <a class="marca" th:href="@{/}">BIBLIOTECA</a>
+            <nav>
+                <a th:href="@{/livros}">Livros</a>
+                <a th:href="@{/autores}">Autores</a>
+                <a th:href="@{/categorias}">Categorias</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="apresentacao">
+            <h1>Sistema de Biblioteca</h1>
+            <p>Gerencie livros, autores e categorias em um só lugar.</p>
+        </section>
+
+        <p class="secao-titulo">Módulos</p>
+
+        <section class="modulos">
+
+            <div class="card">
+                <h2>Livros</h2>
+                <div>
+                    <p class="total" th:text="${totalLivros} ?: '—'">0</p>
+                    <p class="rotulo">cadastrados</p>
+                </div>
+                <div class="acoes">
+                    <a class="botao botao-principal" th:href="@{/livros/novo}">Cadastrar</a>
+                    <a class="botao botao-secundario" th:href="@{/livros}">Ver lista</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Autores</h2>
+                <div>
+                    <p class="total" th:text="${totalAutores} ?: '—'">0</p>
+                    <p class="rotulo">cadastrados</p>
+                </div>
+                <div class="acoes">
+                    <a class="botao botao-principal" th:href="@{/autores/novo}">Cadastrar</a>
+                    <a class="botao botao-secundario" th:href="@{/autores}">Ver lista</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Categorias</h2>
+                <div>
+                    <p class="total" th:text="${totalCategorias} ?: '—'">0</p>
+                    <p class="rotulo">cadastradas</p>
+                </div>
+                <div class="acoes">
+                    <a class="botao botao-principal" th:href="@{/categorias/novo}">Cadastrar</a>
+                    <a class="botao botao-secundario" th:href="@{/categorias}">Ver lista</a>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Só aparece quando o controller envia um livro (rota /livros/exemplo) -->
+        <section th:if="${livro != null}">
+            <p class="secao-titulo">Livro em destaque</p>
+            <div class="painel">
+                <div class="dados">
+                    <div>
+                        <p class="rotulo">Título</p>
+                        <p class="valor" th:text="${livro.titulo}">Dom Casmurro</p>
+                    </div>
+                    <div>
+                        <p class="rotulo">Autor</p>
+                        <p class="valor" th:text="${livro.autor}">Machado de Assis</p>
+                    </div>
+                    <div>
+                        <p class="rotulo">ISBN</p>
+                        <p class="valor" th:text="${livro.isbn}">978-85-00-00000-0</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        Sistema de Biblioteca · Spring Boot + Thymeleaf
+    </footer>
+
+</body>
+</html>

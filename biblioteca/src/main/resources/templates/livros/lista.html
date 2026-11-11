@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livros cadastrados</title>
+    <link rel="stylesheet" th:href="@{/css/estilo.css}" href="../../static/css/estilo.css">
+</head>
+<body>
+
+    <header>
+        <div class="topo">
+            <a class="marca" th:href="@{/}">BIBLIOTECA</a>
+            <nav>
+                <a th:href="@{/livros}" class="ativo">Livros</a>
+                <a th:href="@{/autores}">Autores</a>
+                <a th:href="@{/categorias}">Categorias</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="apresentacao">
+            <h1>Livros cadastrados</h1>
+            <p>Todos os livros salvos no banco de dados.</p>
+        </section>
+
+        <p class="resumo">
+            Total de livros: <strong th:text="${livros.size()}">1</strong>
+        </p>
+
+        <div class="tabela-box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Autor</th>
+                        <th>ISBN</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="livro : ${livros}">
+                        <td th:text="${livro.id}">1</td>
+                        <td th:text="${livro.titulo}">Dom Casmurro</td>
+                        <td th:text="${livro.autor}">Machado de Assis</td>
+                        <td th:text="${livro.isbn}">978-85-00-00000-0</td>
+                        <td>
+                            <a class="link-excluir"
+                               th:href="@{/livros/excluir/{id}(id=${livro.id})}">Excluir</a>
+                        </td>
+                    </tr>
+                    <tr th:if="${livros.isEmpty()}">
+                        <td class="vazio" colspan="5">Nenhum livro cadastrado ainda.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="barra-acoes">
+            <a class="botao botao-principal" th:href="@{/livros/novo}">Cadastrar novo livro</a>
+            <a class="botao botao-secundario" th:href="@{/}">Voltar ao início</a>
+        </div>
+
+    </main>
+
+    <footer>
+        Sistema de Biblioteca · Spring Boot + Thymeleaf
+    </footer>
+
+</body>
+</html>

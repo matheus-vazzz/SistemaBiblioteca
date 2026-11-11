@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autores cadastrados</title>
+    <link rel="stylesheet" th:href="@{/css/estilo.css}" href="../../static/css/estilo.css">
+</head>
+<body>
+
+    <header>
+        <div class="topo">
+            <a class="marca" th:href="@{/}">BIBLIOTECA</a>
+            <nav>
+                <a th:href="@{/livros}">Livros</a>
+                <a th:href="@{/autores}" class="ativo">Autores</a>
+                <a th:href="@{/categorias}">Categorias</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="apresentacao">
+            <h1>Autores cadastrados</h1>
+            <p>Todos os autores salvos no banco de dados.</p>
+        </section>
+
+        <p class="resumo">
+            Total de autores: <strong th:text="${autores.size()}">1</strong>
+        </p>
+
+        <div class="tabela-box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Nacionalidade</th>
+                        <th>Obra publicada</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="autor : ${autores}">
+                        <td th:text="${autor.id}">1</td>
+                        <td th:text="${autor.nome}">Machado de Assis</td>
+                        <td th:text="${autor.nacionalidade}">Brasileiro</td>
+                        <td th:text="${autor.obra}">Dom Casmurro</td>
+                        <td>
+                            <a class="link-excluir"
+                               th:href="@{/autores/excluir/{id}(id=${autor.id})}">Excluir</a>
+                        </td>
+                    </tr>
+                    <tr th:if="${autores.isEmpty()}">
+                        <td class="vazio" colspan="5">Nenhum autor cadastrado ainda.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="barra-acoes">
+            <a class="botao botao-principal" th:href="@{/autores/novo}">Cadastrar novo autor</a>
+            <a class="botao botao-secundario" th:href="@{/}">Voltar ao início</a>
+        </div>
+
+    </main>
+
+    <footer>
+        Sistema de Biblioteca · Spring Boot + Thymeleaf
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,346 @@
+:root {
+    --fundo: #f6f5f2;
+    --superficie: #ffffff;
+    --texto: #1f1f1f;
+    --texto-suave: #6b6b6b;
+    --borda: #e3e1dc;
+    --destaque: #2f4b3c;
+    --destaque-suave: #e8efe9;
+    --perigo: #9b2c2c;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+header {
+    background: var(--superficie);
+    border-bottom: 1px solid var(--borda);
+}
+
+.topo {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.marca {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+nav {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    color: var(--texto-suave);
+}
+
+nav a:hover,
+nav a.ativo {
+    background: var(--destaque-suave);
+    color: var(--destaque);
+}
+
+/* ---------- Conteúdo ---------- */
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 48px 24px 64px;
+}
+
+main.estreito {
+    max-width: 560px;
+}
+
+.apresentacao {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.apresentacao h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.apresentacao p {
+    color: var(--texto-suave);
+}
+
+.secao-titulo {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    margin-bottom: 16px;
+}
+
+.painel {
+    background: var(--superficie);
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    padding: 28px 24px;
+}
+
+/* ---------- Botões ---------- */
+.botao {
+    display: inline-block;
+    padding: 9px 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.botao-principal {
+    background: var(--destaque);
+    color: #ffffff;
+}
+
+.botao-principal:hover {
+    opacity: 0.9;
+}
+
+.botao-secundario {
+    background: var(--superficie);
+    border-color: var(--borda);
+    color: var(--texto);
+}
+
+.botao-secundario:hover {
+    border-color: var(--destaque);
+    color: var(--destaque);
+}
+
+.barra-acoes {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+}
+
+.modulos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
+}
+
+.card {
+    background: var(--superficie);
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    padding: 24px 16px;
+    min-height: 210px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.card:hover {
+    border-color: var(--destaque);
+    transform: translateY(-2px);
+}
+
+.card h2 {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.card .total {
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--destaque);
+    line-height: 1.2;
+}
+
+.card .rotulo {
+    font-size: 13px;
+    color: var(--texto-suave);
+}
+
+.card .acoes {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+}
+
+.card .acoes .botao {
+    flex: 1;
+    padding: 8px 0;
+    font-size: 13px;
+}
+
+.campo {
+    margin-bottom: 18px;
+}
+
+.campo label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--texto-suave);
+    margin-bottom: 6px;
+}
+
+.campo input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--borda);
+    border-radius: 6px;
+    font-size: 15px;
+    font-family: inherit;
+    background: var(--superficie);
+    color: var(--texto);
+}
+
+.campo input:focus {
+    outline: none;
+    border-color: var(--destaque);
+    box-shadow: 0 0 0 3px var(--destaque-suave);
+}
+
+form .botao-principal {
+    width: 100%;
+    padding: 11px 0;
+    margin-top: 6px;
+}
+
+.resumo {
+    text-align: center;
+    color: var(--texto-suave);
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.resumo strong {
+    color: var(--destaque);
+    font-size: 16px;
+}
+
+.tabela-box {
+    background: var(--superficie);
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+th,
+td {
+    padding: 12px 16px;
+    text-align: center;
+    border-bottom: 1px solid var(--borda);
+}
+
+th {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    background: var(--fundo);
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background: #fafaf8;
+}
+
+.link-excluir {
+    font-size: 13px;
+    color: var(--perigo);
+    padding: 4px 10px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+}
+
+.link-excluir:hover {
+    border-color: var(--perigo);
+}
+
+.vazio {
+    text-align: center;
+    padding: 40px 16px;
+    color: var(--texto-suave);
+}
+
+.dados {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+    text-align: center;
+}
+
+.dados-coluna {
+    grid-template-columns: 1fr;
+}
+
+.dados .rotulo {
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+}
+
+.dados .valor {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+footer {
+    text-align: center;
+    font-size: 13px;
+    color: var(--texto-suave);
+    padding: 24px;
+    border-top: 1px solid var(--borda);
+}

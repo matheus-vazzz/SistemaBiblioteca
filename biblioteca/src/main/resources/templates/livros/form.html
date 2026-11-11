@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Livro</title>
+</head>
+    <body>
+        <h1>CADASTRAR LIVRO</h1>
+
+        <form th:object="${livro}"
+            action="/livros"
+            method="post">
+
+            <label>Título:</label>
+            <input type="text" th:field="*{titulo}"/>
+
+            <label>Autor:</label>
+            <input type="text" th:field="*{autor}"/>
+
+            <label>ISBN:</label>
+            <input type="text" th:field="*{isbn}"/>
+
+            <button type="submit">CADASTRAR</button>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categoria cadastrada</title>
+    <link rel="stylesheet" th:href="@{/css/estilo.css}" href="../../static/css/estilo.css">
+</head>
+<body>
+
+    <header>
+        <div class="topo">
+            <a class="marca" th:href="@{/}">BIBLIOTECA</a>
+            <nav>
+                <a th:href="@{/livros}">Livros</a>
+                <a th:href="@{/autores}">Autores</a>
+                <a th:href="@{/categorias}" class="ativo">Categorias</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="estreito">
+
+        <section class="apresentacao">
+            <h1>Categoria cadastrada</h1>
+            <p>A categoria foi salva com sucesso.</p>
+        </section>
+
+        <div class="painel">
+            <div class="dados dados-coluna">
+                <div>
+                    <p class="rotulo">Nome</p>
+                    <p class="valor" th:text="${categoria.nome}">Romance</p>
+                </div>
+                <div>
+                    <p class="rotulo">Descrição</p>
+                    <p class="valor" th:text="${categoria.descricao}">Narrativas de ficção em prosa</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="barra-acoes">
+            <a class="botao botao-principal" th:href="@{/categorias/novo}">Cadastrar outra categoria</a>
+            <a class="botao botao-secundario" th:href="@{/categorias}">Ver categorias cadastradas</a>
+        </div>
+
+    </main>
+
+    <footer>
+        Sistema de Biblioteca · Spring Boot + Thymeleaf
+    </footer>
+
+</body>
+</html>

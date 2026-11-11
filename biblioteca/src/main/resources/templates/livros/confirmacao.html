@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro cadastrado</title>
+    <link rel="stylesheet" th:href="@{/css/estilo.css}" href="../../static/css/estilo.css">
+</head>
+<body>
+
+    <header>
+        <div class="topo">
+            <a class="marca" th:href="@{/}">BIBLIOTECA</a>
+            <nav>
+                <a th:href="@{/livros}" class="ativo">Livros</a>
+                <a th:href="@{/autores}">Autores</a>
+                <a th:href="@{/categorias}">Categorias</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="estreito">
+
+        <section class="apresentacao">
+            <h1>Livro cadastrado</h1>
+            <p>O livro foi salvo com sucesso.</p>
+        </section>
+
+        <div class="painel">
+            <div class="dados dados-coluna">
+                <div>
+                    <p class="rotulo">Título</p>
+                    <p class="valor" th:text="${livro.titulo}">Dom Casmurro</p>
+                </div>
+                <div>
+                    <p class="rotulo">Autor</p>
+                    <p class="valor" th:text="${livro.autor}">Machado de Assis</p>
+                </div>
+                <div>
+                    <p class="rotulo">ISBN</p>
+                    <p class="valor" th:text="${livro.isbn}">978-85-00-00000-0</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="barra-acoes">
+            <a class="botao botao-principal" th:href="@{/livros/novo}">Cadastrar outro livro</a>
+            <a class="botao botao-secundario" th:href="@{/livros}">Ver livros cadastrados</a>
+        </div>
+
+    </main>
+
+    <footer>
+        Sistema de Biblioteca · Spring Boot + Thymeleaf
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorias cadastradas</title>
+    <link rel="stylesheet" th:href="@{/css/estilo.css}" href="../../static/css/estilo.css">
+</head>
+<body>
+
+    <header>
+        <div class="topo">
+            <a class="marca" th:href="@{/}">BIBLIOTECA</a>
+            <nav>
+                <a th:href="@{/livros}">Livros</a>
+                <a th:href="@{/autores}">Autores</a>
+                <a th:href="@{/categorias}" class="ativo">Categorias</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="apresentacao">
+            <h1>Categorias cadastradas</h1>
+            <p>Todas as categorias salvas no banco de dados.</p>
+        </section>
+
+        <p class="resumo">
+            Total de categorias: <strong th:text="${categorias.size()}">1</strong>
+        </p>
+
+        <div class="tabela-box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="categoria : ${categorias}">
+                        <td th:text="${categoria.id}">1</td>
+                        <td th:text="${categoria.nome}">Romance</td>
+                        <td th:text="${categoria.descricao}">Narrativas de ficção em prosa</td>
+                        <td>
+                            <a class="link-excluir"
+                               th:href="@{/categorias/excluir/{id}(id=${categoria.id})}">Excluir</a>
+                        </td>
+                    </tr>
+                    <tr th:if="${categorias.isEmpty()}">
+                        <td class="vazio" colspan="4">Nenhuma categoria cadastrada ainda.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="barra-acoes">
+            <a class="botao botao-principal" th:href="@{/categorias/novo}">Cadastrar nova categoria</a>
+            <a class="botao botao-secundario" th:href="@{/}">Voltar ao início</a>
+        </div>
+
+    </main>
+
+    <footer>
+        Sistema de Biblioteca · Spring Boot + Thymeleaf
+    </footer>
+
+</body>
+</html>

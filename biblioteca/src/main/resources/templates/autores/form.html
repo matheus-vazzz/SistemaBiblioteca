@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Autor</title>
+    <link rel="stylesheet" th:href="@{/css/estilo.css}" href="../../static/css/estilo.css">
+</head>
+<body>
+
+    <header>
+        <div class="topo">
+            <a class="marca" th:href="@{/}">BIBLIOTECA</a>
+            <nav>
+                <a th:href="@{/livros}">Livros</a>
+                <a th:href="@{/autores}" class="ativo">Autores</a>
+                <a th:href="@{/categorias}">Categorias</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="estreito">
+
+        <section class="apresentacao">
+            <h1>Cadastrar autor</h1>
+            <p>Preencha os dados abaixo para cadastrar um novo autor.</p>
+        </section>
+
+        <div class="painel">
+            <form th:action="@{/autores}" th:object="${autor}" method="post">
+
+                <div class="campo">
+                    <label for="nome">Nome</label>
+                    <input type="text" th:field="*{nome}" required>
+                </div>
+
+                <div class="campo">
+                    <label for="nacionalidade">Nacionalidade</label>
+                    <input type="text" th:field="*{nacionalidade}" required>
+                </div>
+
+                <div class="campo">
+                    <label for="obra">Obra publicada</label>
+                    <input type="text" th:field="*{obra}" required>
+                </div>
+
+                <button type="submit" class="botao botao-principal">Cadastrar</button>
+            </form>
+        </div>
+
+        <div class="barra-acoes">
+            <a class="botao botao-secundario" th:href="@{/autores}">Ver autores cadastrados</a>
+            <a class="botao botao-secundario" th:href="@{/}">Voltar ao início</a>
+        </div>
+
+    </main>
+
+    <footer>
+        Sistema de Biblioteca · Spring Boot + Thymeleaf
+    </footer>
+
+</body>
+</html>
