@@ -1,27 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Livro</title>
+    <link rel="stylesheet" th:href="@{/css/estilo.css}" href="../../static/css/estilo.css">
 </head>
-    <body>
-        <h1>CADASTRAR LIVRO</h1>
+<body>
 
-        <form th:object="${livro}"
-            action="/livros"
-            method="post">
+    <header>
+        <div class="topo">
+            <a class="marca" th:href="@{/}">BIBLIOTECA</a>
+            <nav>
+                <a th:href="@{/livros}" class="ativo">Livros</a>
+                <a th:href="@{/autores}">Autores</a>
+                <a th:href="@{/categorias}">Categorias</a>
+            </nav>
+        </div>
+    </header>
 
-            <label>Título:</label>
-            <input type="text" th:field="*{titulo}"/>
+    <main class="estreito">
 
-            <label>Autor:</label>
-            <input type="text" th:field="*{autor}"/>
+        <section class="apresentacao">
+            <h1>Cadastrar livro</h1>
+            <p>Preencha os dados abaixo para cadastrar um novo livro.</p>
+        </section>
 
-            <label>ISBN:</label>
-            <input type="text" th:field="*{isbn}"/>
+        <div class="painel">
+            <form th:action="@{/livros}" th:object="${livro}" method="post">
 
-            <button type="submit">CADASTRAR</button>
-        </form>
-    </body>
+                <div class="campo">
+                    <label for="titulo">Título</label>
+                    <input type="text" th:field="*{titulo}" required>
+                </div>
+
+                <div class="campo">
+                    <label for="autor">Autor</label>
+                    <input type="text" th:field="*{autor}" required>
+                </div>
+
+                <div class="campo">
+                    <label for="isbn">ISBN</label>
+                    <input type="text" th:field="*{isbn}" required>
+                </div>
+
+                <button type="submit" class="botao botao-principal">Cadastrar</button>
+            </form>
+        </div>
+
+        <div class="barra-acoes">
+            <a class="botao botao-secundario" th:href="@{/livros}">Ver livros cadastrados</a>
+            <a class="botao botao-secundario" th:href="@{/}">Voltar ao início</a>
+        </div>
+
+    </main>
+
+    <footer>
+        Sistema de Biblioteca · Spring Boot + Thymeleaf
+    </footer>
+
+</body>
 </html>
