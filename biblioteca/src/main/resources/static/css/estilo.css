@@ -308,6 +308,18 @@ tbody tr:hover {
     border-color: var(--perigo);
 }
 
+.link-editar {
+    font-size: 13px;
+    color: var(--destaque);
+    padding: 4px 10px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+}
+
+.link-editar:hover {
+    border-color: var(--destaque);
+}
+
 .vazio {
     text-align: center;
     padding: 40px 16px;

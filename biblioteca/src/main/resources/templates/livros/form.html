@@ -22,12 +22,13 @@
     <main class="estreito">
 
         <section class="apresentacao">
-            <h1>Cadastrar livro</h1>
+            <h1 th:text="${livro.id == null} ? 'Cadastrar livro' : 'Editar livro'">Cadastrar livro</h1>
             <p>Preencha os dados abaixo para cadastrar um novo livro.</p>
         </section>
 
         <div class="painel">
             <form th:action="@{/livros}" th:object="${livro}" method="post">
+                <input type="hidden" th:field="*{id}">
 
                 <div class="campo">
                     <label for="titulo">Título</label>
@@ -44,7 +45,7 @@
                     <input type="text" th:field="*{isbn}" required>
                 </div>
 
-                <button type="submit" class="botao botao-principal">Cadastrar</button>
+                <button type="submit" class="botao botao-principal" th:text="${livro.id == null} ? 'Cadastrar' : 'Salvar alterações'">Cadastrar</button>
             </form>
         </div>
 

@@ -58,4 +58,13 @@ public class LivroController {
         repository.deleteById(id);
         return "redirect:/livros";
     }
+
+    @GetMapping("/editar/{id}")
+    public String editarLivro(@PathVariable Long id, Model model) {
+        Livro livro =
+        repository.findById(id)
+        .orElseThrow();
+        model.addAttribute("livro", livro);
+        return "livros/forms";
+    }
 }

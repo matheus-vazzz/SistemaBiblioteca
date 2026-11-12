@@ -48,6 +48,12 @@
                         <td th:text="${livro.autor}">Machado de Assis</td>
                         <td th:text="${livro.isbn}">978-85-00-00000-0</td>
                         <td>
+                            <a class="link-editar"
+                            th:href="@{/livros/editar/{id}(id=${livro.id})}">Editar</a>
+                            <a class="link-excluir"
+                            th:href="@{/livros/excluir/{id}(id=${livro.id})}">Excluir</a>
+                        </td>
+                        <td>
                             <a class="link-excluir"
                                th:href="@{/livros/excluir/{id}(id=${livro.id})}">Excluir</a>
                         </td>
