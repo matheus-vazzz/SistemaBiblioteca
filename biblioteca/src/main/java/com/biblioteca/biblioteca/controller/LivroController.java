@@ -65,6 +65,6 @@ public class LivroController {
         repository.findById(id)
         .orElseThrow();
         model.addAttribute("livro", livro);
-        return "livros/forms";
+        return "livros/form";
     }
 }
