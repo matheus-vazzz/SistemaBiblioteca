@@ -53,10 +53,6 @@
                             <a class="link-excluir"
                             th:href="@{/livros/excluir/{id}(id=${livro.id})}">Excluir</a>
                         </td>
-                        <td>
-                            <a class="link-excluir"
-                               th:href="@{/livros/excluir/{id}(id=${livro.id})}">Excluir</a>
-                        </td>
                     </tr>
                     <tr th:if="${livros.isEmpty()}">
                         <td class="vazio" colspan="5">Nenhum livro cadastrado ainda.</td>
