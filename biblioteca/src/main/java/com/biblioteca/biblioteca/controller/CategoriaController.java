@@ -44,4 +44,11 @@ public class CategoriaController {
         repository.deleteById(id);
         return "redirect:/categorias";
     }
+
+    @GetMapping("/editar/{id}")
+    public String editarCategoria(@PathVariable Long id, Model model) {
+        Categoria categoria = repository.findById(id).orElseThrow();
+        model.addAttribute("categoria", categoria);
+        return "categorias/form";
+    }
 }

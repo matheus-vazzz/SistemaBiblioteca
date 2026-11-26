@@ -22,12 +22,13 @@
     <main class="estreito">
 
         <section class="apresentacao">
-            <h1>Cadastrar autor</h1>
+            <h1 th:text="${autor.id == null} ? 'Cadastrar autor' : 'Editar autor'">Cadastrar autor</h1>
             <p>Preencha os dados abaixo para cadastrar um novo autor.</p>
         </section>
 
         <div class="painel">
             <form th:action="@{/autores}" th:object="${autor}" method="post">
+                <input type="hidden" th:field="*{id}">
 
                 <div class="campo">
                     <label for="nome">Nome</label>
@@ -44,7 +45,7 @@
                     <input type="text" th:field="*{obra}" required>
                 </div>
 
-                <button type="submit" class="botao botao-principal">Cadastrar</button>
+                <button type="submit" class="botao botao-principal" th:text="${autor.id == null} ? 'Cadastrar' : 'Salvar alterações'">Cadastrar</button>
             </form>
         </div>
 

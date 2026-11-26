@@ -46,8 +46,10 @@
                         <td th:text="${categoria.nome}">Romance</td>
                         <td th:text="${categoria.descricao}">Narrativas de ficção em prosa</td>
                         <td>
+                            <a class="link-editar"
+                            th:href="@{/categorias/editar/{id}(id=${categoria.id})}">Editar</a>
                             <a class="link-excluir"
-                               th:href="@{/categorias/excluir/{id}(id=${categoria.id})}">Excluir</a>
+                            th:href="@{/categorias/excluir/{id}(id=${categoria.id})}">Excluir</a>
                         </td>
                     </tr>
                     <tr th:if="${categorias.isEmpty()}">

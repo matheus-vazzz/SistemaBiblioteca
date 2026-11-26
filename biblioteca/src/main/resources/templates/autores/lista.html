@@ -48,8 +48,10 @@
                         <td th:text="${autor.nacionalidade}">Brasileiro</td>
                         <td th:text="${autor.obra}">Dom Casmurro</td>
                         <td>
+                            <a class="link-editar"
+                            th:href="@{/autores/editar/{id}(id=${autor.id})}">Editar</a>
                             <a class="link-excluir"
-                               th:href="@{/autores/excluir/{id}(id=${autor.id})}">Excluir</a>
+                            th:href="@{/autores/excluir/{id}(id=${autor.id})}">Excluir</a>
                         </td>
                     </tr>
                     <tr th:if="${autores.isEmpty()}">
